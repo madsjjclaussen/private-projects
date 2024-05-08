@@ -1,5 +1,5 @@
 import streamlit as st
-import altair as alt
+import seaborn as sns
 import plotly.graph_objects as go
 
 
@@ -17,7 +17,10 @@ def get_dataframe(df):
     )
     df.rename(columns={"total": "Total", "mean": "Mean", "std": "Standard deviation"}, inplace=True)
     st.dataframe(
-        df.style.format(precision=2).background_gradient(axis=0, subset=['Total', 'Mean', 'Standard deviation'], cmap='Blues', ),
+        df.style.format(precision=2)
+        .background_gradient(
+            axis=0, subset=['Total', 'Mean', 'Standard deviation'], cmap=sns.light_palette("#add8e6", n_colors=10, as_cmap=True)
+        ),
         column_config={
             "hist": st.column_config.LineChartColumn(
                 "Rating history",
