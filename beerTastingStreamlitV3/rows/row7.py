@@ -1,6 +1,5 @@
 import plotly.graph_objects as go
 import streamlit as st
-import plotly.express as px
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
